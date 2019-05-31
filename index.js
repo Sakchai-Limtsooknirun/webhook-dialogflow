@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const port = process.env.PORT || 4000;
 
+// Import the appropriate class
+const { WebhookClient } = require('dialogflow-fulfillment');
+
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
@@ -15,9 +18,19 @@ app.post('/webhook', (req, res) => {
   console.log('POST: /');
   let payload = req.body;
   console.log(req.body);
+
+   //Create an instance
+   const agent = new WebhookClient({request: request, response: response});
+
+   console.log('agentVersion: '+agent.agentVersion());
+   console.log('intent: '+agent.intent);
+   console.log('locale: '+agent.locale);
+   console.log('query: ',agent.query);
+   console.log('session: ',agent.session);
+   
+
   res.send({success: true, payload: payload});
 })
-
 
 app.listen(port, ()=>{
   console.log(`Server is running at port: ${port}`);
