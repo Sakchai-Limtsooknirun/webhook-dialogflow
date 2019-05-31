@@ -28,8 +28,13 @@ app.post('/webhook', (req, res) => {
    console.log('query: ',agent.query);
    console.log('session: ',agent.session);
    
-  agent.addResponse_('Hi Nottdev');
+  function location(agent) {
+    agent.add('Hiiiii Dev');
+  }
 
+  let intentMap = new Map();
+  intentMap.set('Location', location);
+  agent.handleRequest(intentMap);
   // res.send({success: true, payload: payload});
 })
 
