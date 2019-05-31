@@ -28,9 +28,9 @@ app.post('/webhook', (req, res) => {
    console.log('query: ',agent.query);
    console.log('session: ',agent.session);
    
-  agent.add('Hi Nottdev');
+  agent.addResponse_('Hi Nottdev');
 
-  res.send({success: true, payload: payload});
+  // res.send({success: true, payload: payload});
 })
 
 app.listen(port, ()=>{
