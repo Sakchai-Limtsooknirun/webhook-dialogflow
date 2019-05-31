@@ -20,7 +20,7 @@ app.post('/webhook', (req, res) => {
   console.log(req.body);
 
    //Create an instance
-   const agent = new WebhookClient({request: request, response: response});
+   const agent = new WebhookClient({request: req, response: res});
 
    console.log('agentVersion: '+agent.agentVersion());
    console.log('intent: '+agent.intent);
