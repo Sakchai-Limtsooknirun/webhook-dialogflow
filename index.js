@@ -22,11 +22,11 @@ app.post('/webhook', (req, res) => {
    //Create an instance
    const agent = new WebhookClient({request: req, response: res});
 
-   console.log('agentVersion: '+agent.agentVersion());
-   console.log('intent: '+agent.intent);
-   console.log('locale: '+agent.locale);
-   console.log('query: ',agent.query);
-   console.log('session: ',agent.session);
+   console.log('agentVersion: '+WebhookClient.agentVersion());
+   console.log('intent: '+WebhookClient.intent);
+   console.log('locale: '+WebhookClient.locale);
+   console.log('query: ',WebhookClient.query);
+   console.log('session: ',WebhookClient.session);
    
 
   res.send({success: true, payload: payload});
